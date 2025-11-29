@@ -1,8 +1,8 @@
-/* src/components/StarRating.css */
+/* src/components/StarRating.css (ADICIONADA CLASSE .half-filled) */
 
 .star-rating-container {
   display: flex;
-  justify-content: center; /* Centraliza as estrelas */
+  justify-content: center;
   margin-top: 5px;
 }
 
@@ -11,10 +11,24 @@
   margin: 0 1px;
 }
 
+/* Estrela Cheia */
 .star.filled {
-  color: gold; /* Estrela preenchida */
+  color: gold;
 }
 
+/* Estrela Vazia */
 .star.empty {
-  color: #ccc; /* Estrela vazia */
+  color: #ccc;
+}
+
+/* ✨ MEIA ESTRELA ✨ */
+.star.half-filled {
+  /* Cor do texto transparente para permitir que o fundo (gradiente) apareça */
+  color: transparent;
+  /* Cria um gradiente de cor: 50% Ouro e 50% Cinza */
+  background: linear-gradient(to right, gold 50%, #ccc 50%);
+  /* O texto usa o gradiente como cor de preenchimento */
+  background-clip: text;
+  -webkit-background-clip: text; /* Compatibilidade com navegadores Webkit */
+  -webkit-text-fill-color: transparent; /* Compatibilidade com navegadores Webkit */
 }

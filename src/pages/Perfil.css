@@ -1,17 +1,13 @@
-/* src/pages/Perfil.css */
-
 .perfil-container {
-  /* Garante que o perfil ocupe o espaço abaixo do Header */
   padding: 40px;
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* 1. CABEÇALHO (Foto e Nome Centralizados) */
 .perfil-header {
   display: flex;
-  flex-direction: column; /* Alinha verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 30px;
 }
 
@@ -20,17 +16,55 @@
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 5px; /* Reduzida a margem inferior */
+  margin-bottom: 5px;
   border: 4px solid #01035d;
 }
 
 .profile-name {
-  font-size: 1.1em; /* Um pouco menor, se desejar */
+  font-size: 1.1em;
   color: #333;
-  margin-top: 5px; /* Adicionada uma margem superior, se desejar */
+  margin-top: 5px;
   font-weight: 600;
 }
 
+.profile-user {
+  font-size: 1.1em;
+  color: #787676;
+  margin-top: -10px;
+  font-weight: 600;
+}
+
+.profile-stats-container {
+  display: flex;
+  justify-content: center; /* Centraliza o bloco de estatísticas horizontalmente */
+  gap: 40px; /* Espaço entre "Seguindo" e "Seguidores" */
+  margin-top: 15px;
+  margin-bottom: 25px; /* Espaço antes da linha divisória */
+}
+
+/* 2. ITEM DE ESTATÍSTICA: Alinha o número e a label verticalmente */
+.stat-item {
+  display: flex;
+  flex-direction: column; /* Coloca os itens um abaixo do outro */
+  align-items: center; /* Centraliza o conteúdo dentro da coluna */
+  text-align: center;
+}
+
+/* 3. NÚMERO (Em cima e em destaque) */
+.stat-number {
+  font-size: 1.1em;
+  color: #01035d; /* Cor de destaque */
+  font-weight: 700;
+  line-height: 1.2; /* Espaçamento entre o número e a label */
+}
+
+/* 4. LABEL (Embaixo e menor) */
+.stat-label {
+  font-size: 0.9em;
+  color: #555;
+  font-weight: 500;
+  text-transform: uppercase;
+}
 .divider {
   border: 0;
   height: 1px;
@@ -38,7 +72,6 @@
   margin: 20px 0 30px 0;
 }
 
-/* 2. SEÇÃO DE ÁLBUNS */
 .section-title {
   font-size: 1.1em;
   color: #555;
@@ -46,18 +79,15 @@
   text-align: center;
 }
 
-/* O Grid é perfeito para alinhar itens lado a lado e quebrar linha automaticamente */
 .albuns-grid {
   display: grid;
-  /* Cria colunas automáticas com largura mínima de 120px */
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 25px; /* Espaço entre os álbuns */
+  gap: 25px;
   justify-content: center;
 }
 
 .album-card {
   text-align: center;
-  /* Estilo opcional para destacar cada card */
   padding: 10px;
   border-radius: 8px;
   transition: transform 0.2s;

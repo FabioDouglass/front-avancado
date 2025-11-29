@@ -37,9 +37,45 @@ export default function Perfil() {
           className="profile-photo"
         />
         <h2 className="profile-name">{user.nome}</h2>
+        <h3 className="profile-user">@{user.usuario}</h3>
+        <div className="profile-stats-container">
+          <div className="stat-item">
+            <span className="stat-number">43</span>
+            <span className="stat-label">Seguindo</span>
+          </div>
+
+          <div className="stat-item">
+            <span className="stat-number">104</span>
+            <span className="stat-label">Seguidores</span>
+          </div>
+        </div>
       </div>
 
       <hr className="divider" />
+
+      <h3 className="section-title">Álbuns Favoritos</h3>
+
+      <div className="albuns-grid">
+        {/* ✨ CORREÇÃO: Usa um array vazio se albunsFavoritos for undefined ✨ */}
+        {(user.albunsFavoritos || []).map((album, i) => (
+          <div
+            key={i}
+            className="album-card"
+            onClick={() => handleOpenModal(album)}
+          >
+            <img
+              src={album.capa}
+              alt={`Capa do álbum ${album.titulo}`}
+              className="album-cover"
+            />
+            <StarRating rating={album.nota} />
+          </div>
+        ))}
+      </div>
+
+      {/* 5. Renderiza o Modal */}
+      {/* Ele só será visível se selectedAlbum tiver um valor (não for null) */}
+      <AlbumModal album={selectedAlbum} onClose={handleCloseModal} />
 
       <h3 className="section-title">Álbuns Avaliados</h3>
 
