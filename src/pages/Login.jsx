@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { users } from "../data/users";
 import "./Login.css";
 
-import imagem from "../../public/sonic.jpeg";
+import imagem from "../../public/cd.png";
 
 export default function Login() {
   const [usuario, setUsuario] = useState("");

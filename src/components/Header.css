@@ -21,3 +21,18 @@
   color: #333;
   font-weight: 500;
 }
+.logout-button {
+  background: none;
+  color: #ab0909; /* Cor do link */
+  border: none;
+  padding: 0;
+  margin-left: 20px; /* Alinha com os outros links */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none; /* remove sublinhado se precisar */
+}
+
+.logout-button:hover {
+  text-decoration: underline;
+}

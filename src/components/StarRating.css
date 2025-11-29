@@ -1,0 +1,20 @@
+/* src/components/StarRating.css */
+
+.star-rating-container {
+  display: flex;
+  justify-content: center; /* Centraliza as estrelas */
+  margin-top: 5px;
+}
+
+.star {
+  font-size: 18px;
+  margin: 0 1px;
+}
+
+.star.filled {
+  color: gold; /* Estrela preenchida */
+}
+
+.star.empty {
+  color: #ccc; /* Estrela vazia */
+}
