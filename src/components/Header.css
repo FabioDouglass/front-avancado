@@ -1,0 +1,23 @@
+/* src/components/Header.css */
+
+.main-header {
+  display: flex;
+  justify-content: space-between; /* Espaça a logo da navegação */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.logo-image {
+  /* Defina o tamanho da sua logo */
+  height: 40px; /* Altura ideal para uma logo */
+  width: auto;
+}
+
+.header-nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
