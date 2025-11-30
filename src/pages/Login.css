@@ -1,42 +1,50 @@
-/* src/pages/Login.css */
-
-/* 1. CONTÊINER PRINCIPAL */
 .login-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   background-color: #f0f2f5;
-  font-family: "Arial", sans-serif;
 }
 
-/* 2. SPLIT WRAPPER: O CONTEÚDO LADO A LADO */
 .login-split-wrapper {
   display: flex;
-  background: white;
+  width: 90%;
+  max-width: 1000px;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  height: 500px; /* Altura fixa */
   overflow: hidden;
 }
 
-/* 3. COLUNA DA IMAGEM (ESQUERDA) */
 .login-image-column {
   flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  background-color: white; /* ✨ CORRIGIDO PARA BRANCO ✨ */
+  align-items: center;
+  background-color: #f0f2f5;
+  padding: 40px 20px;
+}
+.login-logo-group {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login-image {
-  max-width: 90%;
-  max-height: 90%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
   object-fit: contain;
 }
 
-/* 4. CAIXA DE LOGIN (DIREITA) */
+.logo-text {
+  font-size: 2.2em;
+  /* Ajuste a família de fonte, se o Header estiver usando uma fonte específica. */
+  /* Se você não tem uma fonte externa, deixe sem font-family para usar a padrão do projeto */
+  font-weight: 700;
+  color: #01035d;
+}
 .login-box {
   flex: 1;
   display: flex;
@@ -44,39 +52,14 @@
   justify-content: center;
   width: 100%;
   text-align: center;
-
-  /* POSICIONAMENTO ABSOLUTO PARA O ERRO */
-  position: relative; /* Pai de referência */
-  padding: 40px; /* Padding padrão */
-  padding-top: 50px; /* Espaço extra reservado para a mensagem de erro no topo */
+  position: relative;
+  padding: 40px;
+  padding-top: 50px;
 }
 
-/* 5. MENSAGEM DE ERRO (SOLUÇÃO PARA NÃO AUMENTAR A TELA) */
-.login-error-message {
-  background-color: #fcebeb;
-  color: #c0392b;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #e74c3c;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: center;
-
-  /* ✨ TIRA DO FLUXO: Impede o "aumento" da tela ✨ */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 90%;
-  margin: 0 auto;
-  transform: translateY(20px); /* Posição dentro do padding reservado */
-  z-index: 10;
-}
-
-/* 6. ELEMENTOS INTERNOS */
 .login-box h2 {
   color: #333;
-  margin-bottom: 20px; /* Reduzido para melhor alinhamento com o erro absoluto */
+  margin-bottom: 20px;
   font-size: 28px;
   font-weight: 600;
 }
@@ -93,7 +76,7 @@
 .login-box .login-button {
   width: 100%;
   padding: 12px;
-  background: #01035d; /* Cor azul/indigo */
+  background: #01035d;
   color: white;
   border: none;
   border-radius: 6px;
@@ -107,7 +90,25 @@
   background: #00014a;
 }
 
-/* Ocultar a imagem em telas muito pequenas (Mobile) */
+.login-error-message {
+  background-color: #fcebeb;
+  color: #c0392b;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #e74c3c;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 90%;
+  margin: 0 auto;
+  transform: translateY(20px);
+  z-index: 10;
+}
+
 @media (max-width: 768px) {
   .login-split-wrapper {
     max-width: 90%;

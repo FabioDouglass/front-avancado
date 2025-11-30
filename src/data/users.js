@@ -3,7 +3,7 @@ import testeProfilePic from "../assets/avatar.jpeg";
 
 export const users = [
   {
-    usuario: "fabio",
+    usuario: "fabiodouglas",
     senha: "1234",
     nome: "Fábio Douglas",
     fotoperfil: fabioProfilePic,
@@ -75,6 +75,40 @@ export const users = [
         titulo: "I Said I Love You First",
         nota: 5,
         capa: "https://upload.wikimedia.org/wikipedia/pt/4/46/I_Said_Love_you_first.webp",
+      },
+    ],
+    seguidores: [
+      {
+        nome: "Douglas",
+      },
+      {
+        nome: "Sousa",
+      },
+      {
+        nome: "Teste",
+      },
+      {
+        nome: "Mauricio",
+      },
+      {
+        nome: "Anna",
+      },
+      {
+        nome: "Paula",
+      },
+      {
+        nome: "Rita",
+      },
+    ],
+    seguindo: [
+      {
+        nome: "Douglas",
+      },
+      {
+        nome: "Paula",
+      },
+      {
+        nome: "Rita",
       },
     ],
   },

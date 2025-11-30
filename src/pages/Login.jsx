@@ -38,8 +38,13 @@ export default function Login() {
     <div className="login-container">
       <div className="login-split-wrapper">
         <div className="login-image-column">
-          <img src={imagem} alt="Imagem decorativa" className="login-image" />
+          <div className="login-logo-group">
+            {" "}
+            <img src={imagem} alt="Imagem decorativa" className="login-image" />
+            <span className="logo-text">MusicBox</span>
+          </div>
         </div>
+
         <form className="login-box" onSubmit={handleSubmit}>
           <h2>Login</h2>
           <div className="login-error-placeholder">

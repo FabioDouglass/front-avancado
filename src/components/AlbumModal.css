@@ -1,20 +1,16 @@
-/* src/components/AlbumModal.css */
-
-/* 1. OVERLAY (O fundo escuro que cobre a tela) */
 .modal-overlay {
-  position: fixed; /* Fixo na tela, não se move com a rolagem */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semi-transparente */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Garante que fique acima de tudo (Header, etc.) */
+  z-index: 1000;
 }
 
-/* 2. CONTEÚDO DO MODAL (A Janela Central) */
 .modal-content {
   background: white;
   padding: 20px;

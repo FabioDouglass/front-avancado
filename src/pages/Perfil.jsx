@@ -1,35 +1,66 @@
-// src/pages/Perfil.jsx (MODIFICADO)
-
 import { useEffect, useState } from "react";
 import StarRating from "../components/StarRating";
 import AlbumModal from "../components/AlbumModal";
+import ListModal from "../components/ListaModal";
 import "./Perfil.css";
+
+const LIST_TYPE = {
+  NONE: null,
+  SEGUINDO: "Seguindo",
+  SEGUIDORES: "Seguidores",
+};
 
 export default function Perfil() {
   const [user, setUser] = useState(null);
-  // 1. NOVO ESTADO: Armazena o álbum selecionado (para exibir no Modal)
   const [selectedAlbum, setSelectedAlbum] = useState(null);
+
+  const [activeList, setActiveList] = useState(LIST_TYPE.NONE);
 
   useEffect(() => {
     const u = JSON.parse(localStorage.getItem("usuarioLogado"));
-    setUser(u);
+    setUser({
+      ...u,
+      seguindo: u?.seguindo || [],
+      seguidores: u?.seguidores || [],
+      albuns: u?.albuns || [],
+      albunsFavoritos: u?.albunsFavoritos || [],
+    });
   }, []);
 
-  // 2. Função para abrir o modal
+  const handleOpenListModal = (type) => {
+    setActiveList(type);
+  };
+  const handleCloseListModal = () => {
+    setActiveList(LIST_TYPE.NONE);
+  };
+
   const handleOpenModal = (album) => {
     setSelectedAlbum(album);
   };
-
-  // 3. Função para fechar o modal
   const handleCloseModal = () => {
     setSelectedAlbum(null);
   };
 
   if (!user) return <h2>Carregando...</h2>;
 
+  const listaAlbuns = user.albuns;
+  const shouldShowAlbuns = listaAlbuns.length > 0;
+  const favoritos = user.albunsFavoritos;
+  const shouldShowFavorites = favoritos.length > 0;
+
+  let currentList = [];
+  let modalTitle = "";
+
+  if (activeList === LIST_TYPE.SEGUINDO) {
+    currentList = user.seguindo;
+    modalTitle = LIST_TYPE.SEGUINDO;
+  } else if (activeList === LIST_TYPE.SEGUIDORES) {
+    currentList = user.seguidores;
+    modalTitle = LIST_TYPE.SEGUIDORES;
+  }
+
   return (
     <div className="perfil-container">
-      {/* ... (Header do Perfil permanece o mesmo) ... */}
       <div className="perfil-header">
         <img
           src={user.fotoperfil}
@@ -38,68 +69,85 @@ export default function Perfil() {
         />
         <h2 className="profile-name">{user.nome}</h2>
         <h3 className="profile-user">@{user.usuario}</h3>
-        <div className="profile-stats-container">
-          <div className="stat-item">
-            <span className="stat-number">43</span>
-            <span className="stat-label">Seguindo</span>
-          </div>
 
-          <div className="stat-item">
-            <span className="stat-number">104</span>
+        <div className="profile-stats-container">
+          {/* BOTÃO SEGUINDO */}
+          <button
+            className="stat-item stat-button"
+            onClick={() => handleOpenListModal(LIST_TYPE.SEGUINDO)}
+          >
+            <span className="stat-number">{user.seguindo.length}</span>
+            <span className="stat-label">Seguindo</span>
+          </button>
+
+          {/* BOTÃO SEGUIDORES */}
+          <button
+            className="stat-item stat-button"
+            onClick={() => handleOpenListModal(LIST_TYPE.SEGUIDORES)}
+          >
+            <span className="stat-number">{user.seguidores.length}</span>
             <span className="stat-label">Seguidores</span>
-          </div>
+          </button>
         </div>
       </div>
 
       <hr className="divider" />
 
-      <h3 className="section-title">Álbuns Favoritos</h3>
+      {shouldShowFavorites && (
+        <>
+          <h3 className="section-title">Álbuns Favoritos</h3>
 
-      <div className="albuns-grid">
-        {/* ✨ CORREÇÃO: Usa um array vazio se albunsFavoritos for undefined ✨ */}
-        {(user.albunsFavoritos || []).map((album, i) => (
-          <div
-            key={i}
-            className="album-card"
-            onClick={() => handleOpenModal(album)}
-          >
-            <img
-              src={album.capa}
-              alt={`Capa do álbum ${album.titulo}`}
-              className="album-cover"
-            />
-            <StarRating rating={album.nota} />
+          <div className="albuns-grid">
+            {favoritos.map((album, i) => (
+              <div
+                key={i}
+                className="album-card"
+                onClick={() => handleOpenModal(album)}
+              >
+                <img
+                  src={album.capa}
+                  alt={`Capa do álbum ${album.titulo}`}
+                  className="album-cover"
+                />
+                <StarRating rating={album.nota} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
 
-      {/* 5. Renderiza o Modal */}
-      {/* Ele só será visível se selectedAlbum tiver um valor (não for null) */}
       <AlbumModal album={selectedAlbum} onClose={handleCloseModal} />
 
-      <h3 className="section-title">Álbuns Avaliados</h3>
+      {shouldShowAlbuns ? (
+        <>
+          <h3 className="section-title">Álbuns Avaliados</h3>
 
-      <div className="albuns-grid">
-        {user.albuns.map((album, i) => (
-          // 4. Adiciona o onClick na div do álbum
-          <div
-            key={i}
-            className="album-card"
-            onClick={() => handleOpenModal(album)} // 👈 Ação para abrir o Modal
-          >
-            <img
-              src={album.capa}
-              alt={`Capa do álbum ${album.titulo}`}
-              className="album-cover"
-            />
-            <StarRating rating={album.nota} />
+          <div className="albuns-grid">
+            {listaAlbuns.map((album, i) => (
+              <div
+                key={i}
+                className="album-card"
+                onClick={() => handleOpenModal(album)}
+              >
+                <img
+                  src={album.capa}
+                  alt={`Capa do álbum ${album.titulo}`}
+                  className="album-cover"
+                />
+                <StarRating rating={album.nota} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      ) : (
+        <h3 className="section-title">Ainda não possui álbuns avaliados</h3>
+      )}
 
-      {/* 5. Renderiza o Modal */}
-      {/* Ele só será visível se selectedAlbum tiver um valor (não for null) */}
-      <AlbumModal album={selectedAlbum} onClose={handleCloseModal} />
+      <ListModal
+        title={modalTitle}
+        list={currentList}
+        onClose={handleCloseListModal}
+      />
     </div>
   );
 }

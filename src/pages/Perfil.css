@@ -36,29 +36,26 @@
 
 .profile-stats-container {
   display: flex;
-  justify-content: center; /* Centraliza o bloco de estatísticas horizontalmente */
-  gap: 40px; /* Espaço entre "Seguindo" e "Seguidores" */
+  justify-content: center;
+  gap: 40px;
   margin-top: 15px;
-  margin-bottom: 25px; /* Espaço antes da linha divisória */
+  margin-bottom: 25px;
 }
 
-/* 2. ITEM DE ESTATÍSTICA: Alinha o número e a label verticalmente */
 .stat-item {
   display: flex;
-  flex-direction: column; /* Coloca os itens um abaixo do outro */
-  align-items: center; /* Centraliza o conteúdo dentro da coluna */
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-/* 3. NÚMERO (Em cima e em destaque) */
 .stat-number {
   font-size: 1.1em;
-  color: #01035d; /* Cor de destaque */
+  color: #01035d;
   font-weight: 700;
-  line-height: 1.2; /* Espaçamento entre o número e a label */
+  line-height: 1.2;
 }
 
-/* 4. LABEL (Embaixo e menor) */
 .stat-label {
   font-size: 0.9em;
   color: #555;
@@ -102,4 +99,26 @@
   height: 100px;
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+.stat-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+
+.stat-button:hover {
+  opacity: 0.8;
+}
+
+.profile-stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
