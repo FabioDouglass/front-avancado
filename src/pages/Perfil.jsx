@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✨ Importe o useNavigate ✨
 import StarRating from "../components/StarRating";
 import AlbumModal from "../components/AlbumModal";
 import ListModal from "../components/ListaModal";
@@ -13,11 +14,20 @@ const LIST_TYPE = {
 export default function Perfil() {
   const [user, setUser] = useState(null);
   const [selectedAlbum, setSelectedAlbum] = useState(null);
-
   const [activeList, setActiveList] = useState(LIST_TYPE.NONE);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    const u = JSON.parse(localStorage.getItem("usuarioLogado"));
+    const userString = localStorage.getItem("usuarioLogado");
+
+    if (!userString) {
+      // Se não houver dados de usuário, redireciona para a página de Login
+      navigate("/");
+      return; // Interrompe a execução do useEffect
+    }
+
+    const u = JSON.parse(userString);
     setUser({
       ...u,
       seguindo: u?.seguindo || [],
@@ -25,7 +35,7 @@ export default function Perfil() {
       albuns: u?.albuns || [],
       albunsFavoritos: u?.albunsFavoritos || [],
     });
-  }, []);
+  }, [navigate]);
 
   const handleOpenListModal = (type) => {
     setActiveList(type);
