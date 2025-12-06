@@ -1,0 +1,20 @@
+.notfound-container {
+  text-align: center;
+  display: grid;
+  letter-spacing: -0.5px;
+  font-weight: bold;
+}
+.back-button {
+  display: block;
+  margin: 20px auto 0;
+  width: 25%;
+  padding: 12px;
+  background: #01035d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
