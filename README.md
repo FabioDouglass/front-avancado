@@ -34,57 +34,6 @@ Abra [http://localhost:5173/](http://localhost:5173/) no navegador
 
 ## URls
 
-Login: [Login](http://localhost:5173/)
-Perfil: [Perfil](http://localhost:5173/perfil)
-Home: [Home](http://localhost:5173/home)
-
-- **Listar todos os filmes:**
-
-  ```http
-  GET /filmes
-  ```
-
-- **Listar um filme por titulo**
-
-  ```http
-  GET /filme?titulo=$titulo
-
-  ```
-
-- **Editar a nota de um filme:**
-
-  ```http
-  PATCH /filme/{titulo}
-  Body:
-  {
-    "nota": int
-  }
-  ```
-
-  - **Deletar um filme por título:**
-
-  ```http
-  DELETE /filme/{titulo}
-  ```
-
-- **Cadastrar um filme:**
-
-  ```http
-  POST /api/filme
-  Body:
-  {
-  "ano": int,
-  "diretor": str,
-  "nota": int,
-  "titulo": str
-  }
-  ```
-
-```
-
-
-
-
-
-
-```
+[Login](http://localhost:5173/)\n
+[Perfil](http://localhost:5173/perfil)\n
+[Home](http://localhost:5173/home)\n
