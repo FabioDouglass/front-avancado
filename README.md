@@ -24,9 +24,9 @@ Node.js v22.17.0
 
 2. **Inicie a Aplicação:**
 
-   ```bash
+```bash
    npm run dev
-   ```
+```
 
 3. **Acesse a Aplicação:**
 
@@ -34,9 +34,9 @@ Abra [http://localhost:5173/](http://localhost:5173/) no navegador
 
 ## URls
 
-Login: [http://localhost:5173/](Login) no navegador
-Perfil: [Perfil](http://localhost:5173/) no navegador
-Home: [http://localhost:5173/](http://localhost:5173/) no navegador
+Login: [Login](http://localhost:5173/)
+Perfil: [Perfil](http://localhost:5173/perfil)
+Home: [Home](http://localhost:5173/home)
 
 - **Listar todos os filmes:**
 
