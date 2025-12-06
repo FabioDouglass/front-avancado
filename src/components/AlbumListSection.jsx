@@ -24,28 +24,34 @@ export default function AlbumListSection({
       <h3 className="section-title">{title}</h3>
 
       <div className="albuns-grid">
-        {albumsToShow.map((album, i) => (
-          <div
-            key={i}
-            className="album-card"
-            onClick={() => handleOpenModal(album)}
-          >
-            <img
-              src={album.capa}
-              alt={`Capa do álbum ${album.titulo}`}
-              className="album-cover"
-            />
+        {albumsToShow.map((album, i) => {
+          const ratingValue = album.media || album.nota;
 
-            {isTopRated ? (
-              <p className="rating-display">
-                <span className="average-rating">{album.media.toFixed(1)}</span>
-                <span className="star-icon">★</span>
-              </p>
-            ) : (
-              <StarRating rating={album.nota} />
-            )}
-          </div>
-        ))}
+          return (
+            <div
+              key={i}
+              className="album-card"
+              onClick={() => handleOpenModal(album)}
+            >
+              <img
+                src={album.capa}
+                alt={`Capa do álbum ${album.titulo}`}
+                className="album-cover"
+              />
+
+              {ratingValue > 0 && (
+                <>
+                  <p className="rating-display">
+                    <span className="average-rating">
+                      {ratingValue.toFixed(1)}
+                    </span>
+                    <span className="star-icon">★</span>
+                  </p>
+                </>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {showButton && (

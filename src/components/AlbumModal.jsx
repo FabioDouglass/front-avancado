@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import StarRating from "./StarRating";
 import "./AlbumModal.css";
 
 export default function AlbumModal({ album, onClose }) {
   if (!album) return null;
 
-  const ratingValue = album.nota || album.media;
+  const initialRating = album.nota || album.media || 0;
+  const [tempRating, setTempRating] = useState(initialRating);
+  const hasRatingChanged = tempRating !== initialRating;
+
+  const handleSaveRating = () => {
+    if (tempRating === 0) {
+      alert("Selecione uma nota válida.");
+      return;
+    }
+
+    alert(`Nota ${tempRating} salva para o álbum ${album.titulo}!`);
+
+    onClose();
+  };
+
+  const handleClose = () => {
+    setTempRating(initialRating);
+    onClose();
+  };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={handleClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close-button" onClick={onClose}>
+        <button className="modal-close-button" onClick={handleClose}>
           &times;
         </button>
         <img
@@ -20,8 +38,21 @@ export default function AlbumModal({ album, onClose }) {
         />
 
         <h3 className="modal-title">{album.titulo}</h3>
+        <h2 className="modal-singer">{album.artista}</h2>
 
-        <StarRating rating={ratingValue} />
+        <div className="rating-interaction-area">
+          <p className="rating-label">Definir sua nota:</p>
+          <StarRating
+            initialRating={tempRating}
+            onRatingChange={setTempRating}
+          />
+        </div>
+
+        {hasRatingChanged && (
+          <button className="save-rating-button" onClick={handleSaveRating}>
+            Salvar Nota ({tempRating} Estrelas)
+          </button>
+        )}
       </div>
     </div>
   );

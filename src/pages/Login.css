@@ -40,8 +40,6 @@
 
 .logo-text {
   font-size: 2.2em;
-  /* Ajuste a família de fonte, se o Header estiver usando uma fonte específica. */
-  /* Se você não tem uma fonte externa, deixe sem font-family para usar a padrão do projeto */
   font-weight: 700;
   color: #01035d;
 }

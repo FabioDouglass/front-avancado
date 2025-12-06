@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✨ Importe o useNavigate ✨
+import { useNavigate } from "react-router-dom";
 import StarRating from "../components/StarRating";
 import AlbumModal from "../components/AlbumModal";
 import ListModal from "../components/ListaModal";
@@ -22,9 +22,8 @@ export default function Perfil() {
     const userString = localStorage.getItem("usuarioLogado");
 
     if (!userString) {
-      // Se não houver dados de usuário, redireciona para a página de Login
       navigate("/");
-      return; // Interrompe a execução do useEffect
+      return;
     }
 
     const u = JSON.parse(userString);
@@ -119,7 +118,7 @@ export default function Perfil() {
                   alt={`Capa do álbum ${album.titulo}`}
                   className="album-cover"
                 />
-                <StarRating rating={album.nota} />
+                <StarRating initialRating={album.nota} />
               </div>
             ))}
           </div>
@@ -144,7 +143,7 @@ export default function Perfil() {
                   alt={`Capa do álbum ${album.titulo}`}
                   className="album-cover"
                 />
-                <StarRating rating={album.nota} />
+                <StarRating initialRating={album.nota} />
               </div>
             ))}
           </div>

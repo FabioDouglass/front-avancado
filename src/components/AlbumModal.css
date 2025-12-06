@@ -46,3 +46,32 @@
   color: #01035d;
   margin: 10px 0 5px 0;
 }
+.modal-singer {
+  font-size: 1em;
+  color: #000132;
+  margin: 10px 0 5px 0;
+}
+.save-rating-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #01035d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.save-rating-button:hover {
+  background-color: #00014a;
+}
+
+.rating-interaction-area {
+  margin-top: 15px;
+  text-align: center;
+}
+.rating-label {
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}

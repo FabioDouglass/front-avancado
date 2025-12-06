@@ -1,46 +1,42 @@
 const popularAlbums = [
   {
     titulo: "Future Nostalgia",
-    capa: "https://upload.wikimedia.org/wikipedia/pt/f/f6/Dua_Lipa_-_Future_Nostalgia.png",
-    nota: 4.8,
+    capa: "https://upload.wikimedia.org/wikipedia/pt/c/c7/Dua_Lipa_-_Future_Nostalgia.png",
+    media: 4.8,
+    artista: "Dua Lipa",
   },
   {
     titulo: "After Hours",
-    capa: "https://upload.wikimedia.org/wikipedia/en/2/23/The_Weeknd_-_After_Hours.png",
-    nota: 4.5,
+    capa: "https://upload.wikimedia.org/wikipedia/pt/c/c1/The_Weeknd_-_After_Hours.png",
+    media: 4.5,
+    artista: "The Weeknd",
   },
   {
     titulo: "SOUR",
-    capa: "https://upload.wikimedia.org/wikipedia/en/5/52/Olivia_Rodrigo_-_Sour.png",
-    nota: 3.9,
+    capa: "https://upload.wikimedia.org/wikipedia/pt/7/71/Sour_-_Olivia_Rodrigo.png",
+    media: 3.9,
+    artista: "Olivia Rodrigo",
   },
   {
     titulo: "Thriller",
-    capa: "https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png",
-    nota: 5.0,
-  },
-  {
-    titulo: "Rumours",
-    capa: "https://upload.wikimedia.org/wikipedia/en/1/1a/Rumours_cover.jpg",
-    nota: 4.2,
-  },
-  {
-    titulo: "Random Access Memories",
-    capa: "https://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg",
-    nota: 4.7,
+    capa: "https://upload.wikimedia.org/wikipedia/pt/3/30/Michael_Jackson_-_Thriller.jpg",
+    media: 5.0,
+    artista: "Michael Jackson",
   },
 ];
 
 const topRatedAlbums = [
   {
     titulo: "The Dark Side of the Moon",
-    capa: "https://upload.wikimedia.org/wikipedia/en/d/d4/The_Dark_Side_of_the_Moon_%28Cover%29.png",
+    capa: "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
     media: 4.9,
+    artista: "Pink Floyd",
   },
   {
     titulo: "Abbey Road",
     capa: "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
     media: 4.8,
+    artista: "The Beatles",
   },
 ];
 

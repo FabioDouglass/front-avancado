@@ -24,3 +24,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.star-rating-container .interactive {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star-rating-container .interactive:hover {
+  color: orange;
+}
