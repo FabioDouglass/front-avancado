@@ -1,16 +1,90 @@
-# React + Vite
+# Backend Acervo Filmes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto de MVP da sprint de Desenvolvimento Front End Avançado.
+O projeto consiste em implementar uma interface de perfil inspirada no meu projeto da sprint de Back-End Avançado, o Acervo Musical.
 
-Currently, two official plugins are available:
+## Baixar o projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone https://github.com/FabioDouglass/front-avancado
+cd front-avancado
+```
 
-## React Compiler
+## Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Node.js v22.17.0
 
-## Expanding the ESLint configuration
+## Rodar Projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Instalar as dependências:**
+
+```bash
+ npm install
+```
+
+2. **Inicie a Aplicação:**
+
+   ```bash
+   npm run dev
+   ```
+
+3. **Acesse a Aplicação:**
+
+Abra [http://localhost:5173/](http://localhost:5173/) no navegador
+
+## URls
+
+Login: [http://localhost:5173/](Login) no navegador
+Perfil: [Perfil](http://localhost:5173/) no navegador
+Home: [http://localhost:5173/](http://localhost:5173/) no navegador
+
+- **Listar todos os filmes:**
+
+  ```http
+  GET /filmes
+  ```
+
+- **Listar um filme por titulo**
+
+  ```http
+  GET /filme?titulo=$titulo
+
+  ```
+
+- **Editar a nota de um filme:**
+
+  ```http
+  PATCH /filme/{titulo}
+  Body:
+  {
+    "nota": int
+  }
+  ```
+
+  - **Deletar um filme por título:**
+
+  ```http
+  DELETE /filme/{titulo}
+  ```
+
+- **Cadastrar um filme:**
+
+  ```http
+  POST /api/filme
+  Body:
+  {
+  "ano": int,
+  "diretor": str,
+  "nota": int,
+  "titulo": str
+  }
+  ```
+
+```
+
+
+
+
+
+
+```
