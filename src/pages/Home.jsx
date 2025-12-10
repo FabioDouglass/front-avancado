@@ -1,24 +1,28 @@
 import React, { useState } from "react";
 import AlbumListSection from "../components/AlbumListSection";
-import { popularAlbums, topRatedAlbums } from "../data/albums";
+import { popularAlbums, topRatedAlbums } from "../data/homeData";
+import { getAlbumsWithDetails } from "../utils/albumUtils";
 import "./Home.css";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
+  const detailedPopularAlbums = getAlbumsWithDetails(popularAlbums);
+  const detailedTopRatedAlbums = getAlbumsWithDetails(topRatedAlbums);
 
   const filterAlbums = (albums) => {
-    if (!searchTerm) {
-      return albums;
-    }
-    const lowerCaseSearch = searchTerm.toLowerCase();
+    if (!searchTerm) return albums; // Se a busca estiver vazia, retorna todos
 
-    return albums.filter((album) =>
-      album.titulo.toLowerCase().includes(lowerCaseSearch)
+    const lowerCaseSearch = searchTerm.toLowerCase();
+    return albums.filter(
+      (album) =>
+        // Filtra por título ou artista (já que agora temos os detalhes)
+        album.titulo.toLowerCase().includes(lowerCaseSearch) ||
+        album.artista.toLowerCase().includes(lowerCaseSearch)
     );
   };
 
-  const filteredPopularAlbums = filterAlbums(popularAlbums);
-  const filteredTopRatedAlbums = filterAlbums(topRatedAlbums);
+  const filteredPopularAlbums = filterAlbums(detailedPopularAlbums);
+  const filteredTopRatedAlbums = filterAlbums(detailedTopRatedAlbums);
 
   return (
     <div className="home-container">

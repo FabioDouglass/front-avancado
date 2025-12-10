@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
 import "./AlbumModal.css";
 
@@ -7,6 +8,7 @@ export default function AlbumModal({ album, onClose }) {
 
   const initialRating = album.nota || album.media || 0;
   const [tempRating, setTempRating] = useState(initialRating);
+  const navigate = useNavigate();
   const hasRatingChanged = tempRating !== initialRating;
 
   const handleSaveRating = () => {
@@ -19,7 +21,12 @@ export default function AlbumModal({ album, onClose }) {
 
     onClose();
   };
-
+  const handleOpenDetails = () => {
+    // 1. Fecha o modal
+    onClose();
+    // 2. Navega para a rota dinâmica /album/:id
+    navigate(`/album/${album.id}`);
+  };
   const handleClose = () => {
     setTempRating(initialRating);
     onClose();
@@ -39,6 +46,10 @@ export default function AlbumModal({ album, onClose }) {
 
         <h3 className="modal-title">{album.titulo}</h3>
         <h2 className="modal-singer">{album.artista}</h2>
+
+        <button className="open-details-button" onClick={handleOpenDetails}>
+          Abrir Detalhes
+        </button>
 
         <div className="rating-interaction-area">
           <p className="rating-label">Definir sua nota:</p>

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import StarRating from "../components/StarRating";
 import AlbumModal from "../components/AlbumModal";
 import ListModal from "../components/ListaModal";
+import { getAlbumsWithDetails } from "../utils/albumUtils";
 import "./Perfil.css";
 
 const LIST_TYPE = {
@@ -27,12 +28,17 @@ export default function Perfil() {
     }
 
     const u = JSON.parse(userString);
+
+    // 1. Usa a função de utilitário, garantindo que o input é um array vazio se for null/undefined
+    const detailedAlbuns = getAlbumsWithDetails(u?.albuns || []);
+    const detailedFavorites = getAlbumsWithDetails(u?.albunsFavoritos || []); // <--- JÁ RETORNA [] SE VAZIO
+
     setUser({
       ...u,
       seguindo: u?.seguindo || [],
       seguidores: u?.seguidores || [],
-      albuns: u?.albuns || [],
-      albunsFavoritos: u?.albunsFavoritos || [],
+      albuns: detailedAlbuns,
+      albunsFavoritos: detailedFavorites, // <--- CORREÇÃO: Removemos o || [] desnecessário
     });
   }, [navigate]);
 

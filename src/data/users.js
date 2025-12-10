@@ -1,3 +1,5 @@
+// src/data/users.js (MODIFICADO)
+
 import fabioProfilePic from "../assets/fabio.jpeg";
 import testeProfilePic from "../assets/avatar.jpeg";
 
@@ -8,122 +10,25 @@ export const users = [
     nome: "Fábio Douglas",
     fotoperfil: fabioProfilePic,
     albuns: [
-      {
-        titulo: "Abbey Road",
-        nota: 2,
-        capa: "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
-        artista: "The Beatles",
-      },
-      {
-        titulo: "I Said I Love You First",
-        nota: 5,
-        capa: "https://upload.wikimedia.org/wikipedia/pt/4/46/I_Said_Love_you_first.webp",
-        artista: "Selena Gomez",
-      },
-
-      {
-        titulo: "Future Nostalgia",
-        nota: 5,
-        capa: "https://upload.wikimedia.org/wikipedia/pt/c/c7/Dua_Lipa_-_Future_Nostalgia.png",
-        artista: "Dua Lipa",
-      },
-      {
-        titulo: "Radical Optimism",
-        nota: 3.5,
-        capa: "https://upload.wikimedia.org/wikipedia/en/f/fa/Dua_Lipa_-_Radical_Optimism.png",
-        artista: "Dua Lipa",
-      },
-      {
-        titulo: "Motomami",
-        nota: 5,
-        capa: "https://upload.wikimedia.org/wikipedia/pt/d/dd/Motomami_-_Rosal%C3%ADa.png",
-        artista: "Rosalia",
-      },
-      {
-        titulo: "El Mal Querer",
-        nota: 4,
-        capa: "https://upload.wikimedia.org/wikipedia/pt/4/4a/El_mal_querer.png",
-        artista: "Rosalia",
-      },
-      {
-        titulo: "Plastic Hearts",
-        nota: 4,
-        capa: "https://upload.wikimedia.org/wikipedia/pt/d/d8/Plastic_Hearts_de_Miley_Cyrus.png",
-        artista: "Miley Cyrus",
-      },
-      {
-        titulo: "Endless Summer Vacation",
-        nota: 3.5,
-        capa: "https://upload.wikimedia.org/wikipedia/en/5/54/Miley_Cyrus_-_Endless_Summer_Vacation.png",
-        artista: "Miley Cyrus",
-      },
-      {
-        titulo: "The Dark Side of the Moon",
-        nota: 5,
-        capa: "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
-        artista: "Pink Floyd",
-      },
-      {
-        titulo: "Wish You Were Here",
-        nota: 4,
-        capa: "https://upload.wikimedia.org/wikipedia/en/a/a4/Pink_Floyd%2C_Wish_You_Were_Here_%281975%29.png",
-        artista: "Pink Floyd",
-      },
-      {
-        titulo: "Build Up",
-        nota: 4,
-        capa: "https://upload.wikimedia.org/wikipedia/pt/2/20/RitaLeeBuildUp.jpg",
-        artista: "Rita Lee",
-      },
-      {
-        titulo: "Rita Lee",
-        nota: 4,
-        capa: "https://upload.wikimedia.org/wikipedia/pt/4/4b/Rita_Lee_Lan%C3%A7a_Perfume.jpg",
-        artista: "Rita Lee",
-      },
+      // Agora só ID e Nota
+      { id: "a006", nota: 2 }, // Abbey Road
+      { id: "a007", nota: 5 }, // I Said I Love You First
+      { id: "a001", nota: 5 }, // Future Nostalgia
+      { id: "a008", nota: 3.5 }, // Radical Optimism
+      { id: "a009", nota: 5 }, // Motomami
+      { id: "a010", nota: 4 }, // El Mal Querer
+      { id: "a011", nota: 4 }, // Plastic Hearts
+      { id: "a012", nota: 3.5 }, // Endless Summer Vacation
+      { id: "a005", nota: 5 }, // The Dark Side of the Moon
+      { id: "a013", nota: 4 }, // Wish You Were Here
+      { id: "a014", nota: 4 }, // Build Up
+      { id: "a015", nota: 4 }, // Rita Lee (1980)
     ],
     albunsFavoritos: [
-      {
-        titulo: "I Said I Love You First",
-        nota: 5,
-        capa: "https://upload.wikimedia.org/wikipedia/pt/4/46/I_Said_Love_you_first.webp",
-        artista: "Selena Gomez",
-      },
+      // Agora só ID e Nota
+      { id: "a007", nota: 5 }, // I Said I Love You First
     ],
-    seguidores: [
-      {
-        nome: "Douglas",
-      },
-      {
-        nome: "Sousa",
-      },
-      {
-        nome: "Teste",
-      },
-      {
-        nome: "Mauricio",
-      },
-      {
-        nome: "Anna",
-      },
-      {
-        nome: "Paula",
-      },
-      {
-        nome: "Rita",
-      },
-    ],
-    seguindo: [
-      {
-        nome: "Douglas",
-      },
-      {
-        nome: "Paula",
-      },
-      {
-        nome: "Rita",
-      },
-    ],
+    // ... (restante dos dados do usuário: seguidores, seguindo)
   },
   {
     usuario: "pucrio",
