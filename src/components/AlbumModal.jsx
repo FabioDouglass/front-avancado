@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
 import "./AlbumModal.css";
 
-export default function AlbumModal({ album, onClose }) {
+export default function AlbumModal({
+  album,
+  onClose,
+  hideDetailsButton = false,
+}) {
   if (!album) return null;
 
   const initialRating = album.nota || album.media || 0;
@@ -22,9 +26,7 @@ export default function AlbumModal({ album, onClose }) {
     onClose();
   };
   const handleOpenDetails = () => {
-    // 1. Fecha o modal
     onClose();
-    // 2. Navega para a rota dinâmica /album/:id
     navigate(`/album/${album.id}`);
   };
   const handleClose = () => {
@@ -47,10 +49,11 @@ export default function AlbumModal({ album, onClose }) {
         <h3 className="modal-title">{album.titulo}</h3>
         <h2 className="modal-singer">{album.artista}</h2>
 
-        <button className="open-details-button" onClick={handleOpenDetails}>
-          Abrir Detalhes
-        </button>
-
+        {album.id && !hideDetailsButton && (
+          <button className="open-details-button" onClick={handleOpenDetails}>
+            Abrir Detalhes
+          </button>
+        )}
         <div className="rating-interaction-area">
           <p className="rating-label">Definir sua nota:</p>
           <StarRating

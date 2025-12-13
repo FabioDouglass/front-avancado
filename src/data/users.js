@@ -10,7 +10,6 @@ export const users = [
     nome: "Fábio Douglas",
     fotoperfil: fabioProfilePic,
     albuns: [
-      // Agora só ID e Nota
       { id: "a006", nota: 2 }, // Abbey Road
       { id: "a007", nota: 5 }, // I Said I Love You First
       { id: "a001", nota: 5 }, // Future Nostalgia
@@ -24,11 +23,41 @@ export const users = [
       { id: "a014", nota: 4 }, // Build Up
       { id: "a015", nota: 4 }, // Rita Lee (1980)
     ],
-    albunsFavoritos: [
-      // Agora só ID e Nota
-      { id: "a007", nota: 5 }, // I Said I Love You First
+    albunsFavoritos: [{ id: "a007", nota: 5 }],
+    seguidores: [
+      {
+        nome: "Douglas",
+      },
+      {
+        nome: "Sousa",
+      },
+      {
+        nome: "Teste",
+      },
+      {
+        nome: "Mauricio",
+      },
+      {
+        nome: "Anna",
+      },
+      {
+        nome: "Paula",
+      },
+      {
+        nome: "Rita",
+      },
     ],
-    // ... (restante dos dados do usuário: seguidores, seguindo)
+    seguindo: [
+      {
+        nome: "Douglas",
+      },
+      {
+        nome: "Paula",
+      },
+      {
+        nome: "Rita",
+      },
+    ],
   },
   {
     usuario: "pucrio",

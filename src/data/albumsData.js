@@ -54,6 +54,7 @@ const ALBUMS_DATA = [
     artista: "Dua Lipa",
     capa: "https://upload.wikimedia.org/wikipedia/en/f/fa/Dua_Lipa_-_Radical_Optimism.png",
     genero: "Pop",
+    media: 4.0,
   },
   {
     id: "a009",

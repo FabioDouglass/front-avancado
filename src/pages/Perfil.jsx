@@ -29,16 +29,15 @@ export default function Perfil() {
 
     const u = JSON.parse(userString);
 
-    // 1. Usa a função de utilitário, garantindo que o input é um array vazio se for null/undefined
     const detailedAlbuns = getAlbumsWithDetails(u?.albuns || []);
-    const detailedFavorites = getAlbumsWithDetails(u?.albunsFavoritos || []); // <--- JÁ RETORNA [] SE VAZIO
+    const detailedFavorites = getAlbumsWithDetails(u?.albunsFavoritos || []);
 
     setUser({
       ...u,
       seguindo: u?.seguindo || [],
       seguidores: u?.seguidores || [],
       albuns: detailedAlbuns,
-      albunsFavoritos: detailedFavorites, // <--- CORREÇÃO: Removemos o || [] desnecessário
+      albunsFavoritos: detailedFavorites,
     });
   }, [navigate]);
 

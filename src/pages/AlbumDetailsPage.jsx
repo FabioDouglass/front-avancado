@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import StarRating from "../components/StarRating";
+import AlbumModal from "../components/AlbumModal";
 import ALBUMS_DATA from "../data/albumsData";
+import "./AlbumDetailsPage.css";
 
 const findAlbumById = (id) => {
   return ALBUMS_DATA.find((a) => a.id === id);
 };
 
 export default function AlbumDetailsPage() {
-  // ✨ 1. USA PARAMS: Extrai o parâmetro 'albumId' da URL ✨
   const { albumId } = useParams();
   const navigate = useNavigate();
-
-  // 2. BUSCA O ÁLBUM: Usa o ID capturado para buscar os dados.
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const album = findAlbumById(albumId);
 
   if (!album) {
@@ -23,15 +23,11 @@ export default function AlbumDetailsPage() {
       </div>
     );
   }
-
-  const ratingValue = album.media || album.nota;
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
 
   return (
     <div className="album-details-container">
-      <button className="back-button" onClick={() => navigate(-1)}>
-        &larr; Voltar
-      </button>
-
       <div className="album-content-wrapper">
         <img
           src={album.capa}
@@ -43,31 +39,27 @@ export default function AlbumDetailsPage() {
           <h1 className="details-title">{album.titulo}</h1>
           <h2 className="details-artist">{album.artista}</h2>
 
-          {/* Exibe a média/nota */}
-          <div className="details-rating-block">
-            {ratingValue > 0 && (
-              <>
-                <p className="details-average">
-                  Média: {ratingValue.toFixed(1)}{" "}
-                  <span className="star-icon">★</span>
-                </p>
-                <StarRating initialRating={ratingValue} />
-              </>
-            )}
-          </div>
-
-          {/* Aqui você pode adicionar a lógica de Avaliação (como a que estava no Modal) */}
           <p className="details-description">
-            {/* Exemplo de espaço para a descrição do álbum */}
-            Este é o espaço para a sinopse, faixas ou informações detalhadas
-            sobre o álbum {album.titulo}.
+            Texto de descrição do album.......... Tracklist...
           </p>
-
-          <button className="rate-button">
-            Avaliar Álbum (Abrir Modal de Avaliação)
-          </button>
+          <div className="album-actions">
+            <button className="rate-button" onClick={handleOpenModal}>
+              Avaliar Álbum
+            </button>
+            <button className="secondary-button" onClick={() => navigate(-1)}>
+              &larr; Voltar
+            </button>
+          </div>
         </div>
       </div>
+
+      {isModalOpen && (
+        <AlbumModal
+          album={album}
+          onClose={handleCloseModal}
+          hideDetailsButton={true}
+        />
+      )}
     </div>
   );
 }

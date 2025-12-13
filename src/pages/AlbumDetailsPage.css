@@ -1,0 +1,144 @@
+/* src/pages/AlbumDetailsPage.css */
+
+.album-details-container {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #333;
+}
+.album-actions {
+  display: flex;
+  gap: 15px; /* Espaçamento um pouco menor */
+  align-items: center;
+  margin-top: 30px;
+}
+
+.back-button:hover {
+  color: #00014a;
+}
+
+/* --- Conteúdo Principal (Capa e Informações) --- */
+.album-content-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.details-cover-image {
+  width: 350px; /* Tamanho grande para a capa */
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.album-info {
+  flex-grow: 1;
+}
+
+/* --- Títulos e Artista --- */
+.details-title {
+  font-size: 2.5rem;
+  color: #01035d;
+  margin: 0 0 5px 0;
+  line-height: 1.1;
+}
+
+.details-artist {
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 0;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+/* --- Bloco de Média e Avaliação --- */
+.details-rating-block {
+  margin-bottom: 25px;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.details-average {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.star-icon {
+  color: gold;
+  margin-left: 5px;
+}
+
+/* --- Descrição --- */
+.details-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* --- Botão de Ação (Avaliar) --- */
+.rate-button {
+  padding: 12px 25px;
+  background-color: #01035d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.rate-button:hover {
+  background-color: #00014a;
+}
+
+.secondary-button {
+  padding: 12px 25px;
+  background-color: transparent;
+  color: #01035d;
+  border: 2px solid #01035d;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.secondary-button:hover {
+  background-color: #01035d;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .album-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .details-cover-image {
+    width: 80%;
+    height: auto;
+  }
+
+  .details-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .details-artist {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .album-info {
+    text-align: center;
+  }
+}

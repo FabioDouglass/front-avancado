@@ -10,12 +10,11 @@ export default function Home() {
   const detailedTopRatedAlbums = getAlbumsWithDetails(topRatedAlbums);
 
   const filterAlbums = (albums) => {
-    if (!searchTerm) return albums; // Se a busca estiver vazia, retorna todos
+    if (!searchTerm) return albums;
 
     const lowerCaseSearch = searchTerm.toLowerCase();
     return albums.filter(
       (album) =>
-        // Filtra por título ou artista (já que agora temos os detalhes)
         album.titulo.toLowerCase().includes(lowerCaseSearch) ||
         album.artista.toLowerCase().includes(lowerCaseSearch)
     );
