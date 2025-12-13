@@ -31,26 +31,6 @@
   color: gold;
   font-size: 1.1em;
 }
-.search-bar-container {
-  max-width: 800px;
-  margin: 30px auto 40px auto;
-  padding: 0 20px;
-}
-
-.search-input {
-  width: 100%;
-  padding: 12px 15px;
-  font-size: 1.1em;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  transition: border-color 0.3s;
-}
-
-.search-input:focus {
-  border-color: #01035d;
-  outline: none;
-}
-
 .no-results-message {
   text-align: center;
   color: #888;

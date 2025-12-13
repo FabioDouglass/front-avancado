@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AlbumListSection from "../components/AlbumListSection";
+import SearchBar from "../components/SearchBar";
 import { popularAlbums, topRatedAlbums } from "../data/homeData";
 import { getAlbumsWithDetails } from "../utils/albumUtils";
 import "./Home.css";
@@ -25,15 +26,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <div className="search-bar-container">
-        <input
-          type="text"
-          placeholder="Pesquisar álbuns por título..."
-          className="search-input"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+      <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
 
       {filteredPopularAlbums.length > 0 && (
         <AlbumListSection

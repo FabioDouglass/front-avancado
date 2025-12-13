@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import StarRating from "../components/StarRating";
 import AlbumModal from "../components/AlbumModal";
 import ListModal from "../components/ListaModal";
+import SearchBar from "../components/SearchBar";
 import { getAlbumsWithDetails } from "../utils/albumUtils";
 import "./Perfil.css";
 
@@ -13,6 +14,8 @@ const LIST_TYPE = {
 };
 
 export default function Perfil() {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [user, setUser] = useState(null);
   const [selectedAlbum, setSelectedAlbum] = useState(null);
   const [activeList, setActiveList] = useState(LIST_TYPE.NONE);
@@ -57,10 +60,27 @@ export default function Perfil() {
 
   if (!user) return <h2>Carregando...</h2>;
 
-  const listaAlbuns = user.albuns;
-  const shouldShowAlbuns = listaAlbuns.length > 0;
-  const favoritos = user.albunsFavoritos;
-  const shouldShowFavorites = favoritos.length > 0;
+  const filterAlbums = (albums) => {
+    if (!searchTerm) {
+      return albums;
+    }
+
+    const lowerCaseSearch = searchTerm.toLowerCase();
+    return albums.filter(
+      (album) =>
+        album.titulo.toLowerCase().includes(lowerCaseSearch) ||
+        album.artista.toLowerCase().includes(lowerCaseSearch)
+    );
+  };
+
+  const todosAlbuns = user.albuns;
+  const todosFavoritos = user.albunsFavoritos;
+
+  const listaAlbunsFiltrada = filterAlbums(todosAlbuns);
+  const favoritosFiltrados = filterAlbums(todosFavoritos);
+
+  const shouldShowAlbuns = listaAlbunsFiltrada.length > 0;
+  const shouldShowFavorites = favoritosFiltrados.length > 0;
 
   let currentList = [];
   let modalTitle = "";
@@ -85,7 +105,6 @@ export default function Perfil() {
         <h3 className="profile-user">@{user.usuario}</h3>
 
         <div className="profile-stats-container">
-          {/* BOTÃO SEGUINDO */}
           <button
             className="stat-item stat-button"
             onClick={() => handleOpenListModal(LIST_TYPE.SEGUINDO)}
@@ -94,7 +113,6 @@ export default function Perfil() {
             <span className="stat-label">Seguindo</span>
           </button>
 
-          {/* BOTÃO SEGUIDORES */}
           <button
             className="stat-item stat-button"
             onClick={() => handleOpenListModal(LIST_TYPE.SEGUIDORES)}
@@ -104,15 +122,15 @@ export default function Perfil() {
           </button>
         </div>
       </div>
-
+      <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <hr className="divider" />
 
-      {shouldShowFavorites && (
+      {shouldShowFavorites ? (
         <>
           <h3 className="section-title">Álbuns Favoritos</h3>
 
           <div className="albuns-grid">
-            {favoritos.map((album, i) => (
+            {favoritosFiltrados.map((album, i) => (
               <div
                 key={i}
                 className="album-card"
@@ -128,6 +146,12 @@ export default function Perfil() {
             ))}
           </div>
         </>
+      ) : (
+        searchTerm && (
+          <p className="no-results-message">
+            Nenhum álbum favorito encontrado com o termo "{searchTerm}".
+          </p>
+        )
       )}
 
       <AlbumModal album={selectedAlbum} onClose={handleCloseModal} />
@@ -137,7 +161,7 @@ export default function Perfil() {
           <h3 className="section-title">Álbuns Avaliados</h3>
 
           <div className="albuns-grid">
-            {listaAlbuns.map((album, i) => (
+            {listaAlbunsFiltrada.map((album, i) => (
               <div
                 key={i}
                 className="album-card"
@@ -153,6 +177,10 @@ export default function Perfil() {
             ))}
           </div>
         </>
+      ) : searchTerm ? (
+        <p className="no-results-message">
+          Nenhum álbum avaliado encontrado com o termo "{searchTerm}".
+        </p>
       ) : (
         <h3 className="section-title">Ainda não possui álbuns avaliados</h3>
       )}
