@@ -38,9 +38,9 @@ Abra [http://localhost:5173/](http://localhost:5173/) no navegador
 
 ## URls
 
-[Login](http://localhost:5173/)  
+[Login](http://localhost:5173/login)  
 [Perfil](http://localhost:5173/perfil)  
-[Home](http://localhost:5173/home)
+[Home](http://localhost:5173/)
 
 ## Logins de acesso
 
