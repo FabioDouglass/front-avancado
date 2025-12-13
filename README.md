@@ -1,4 +1,4 @@
-# Backend Acervo Filmes
+# Front MusicBox
 
 Projeto de MVP da sprint de Desenvolvimento Front End Avançado.
 O projeto consiste em implementar uma interface de rede social inspirada no meu projeto da sprint de Back-End Avançado, o Acervo Musical.
