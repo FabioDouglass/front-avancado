@@ -29,7 +29,7 @@ Node.js v22.17.0
 2. **Inicie a Aplicação:**
 
 ```bash
-   npm run dev
+ npm run dev
 ```
 
 3. **Acesse a Aplicação:**
@@ -46,15 +46,15 @@ Abra [http://localhost:5173/](http://localhost:5173/) no navegador
 
 ### Usuario 1:
 
-login: fabiodouglas 
+login: fabiodouglas  
 senha: 1234
 
 ### Usuario 2:
 
-login: pucrio 
+login: pucrio  
 senha: pucrio
 
 ### Usuario 3:
 
-login: teste 
+login: teste  
 senha: 12345
