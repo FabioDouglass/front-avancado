@@ -19,17 +19,17 @@ Node.js v22.17.0
 1. **Instalar as dependências:**
 
 ```bash
- nvm use 22
+nvm use 22
 ```
 
 ```bash
- npm install
+npm install
 ```
 
 2. **Inicie a Aplicação:**
 
 ```bash
- npm run dev
+npm run dev
 ```
 
 3. **Acesse a Aplicação:**
